@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
 import "package:simple_icons/simple_icons.dart";
+import 'package:logger/logger.dart';
 
 void main() {
   runApp(const IDcard());
 }
 
+var console = Logger();
+
 List<Widget> columnChildren = [
-  const Center(
-    child: CircleAvatar(
-      backgroundImage: AssetImage('assets/papakofi.jpg'),
-      radius: 50.0,
-    ),
-  ),
   const SizedBox(
     height: 10.0,
   ),
   const Divider(
     height: 20.0,
-    thickness: 1.0,
+    thickness: 2.0,
     color: Colors.grey,
   ),
   const SizedBox(
@@ -85,9 +82,14 @@ List<Widget> columnChildren = [
   ),
 ];
 
-class IDcard extends StatelessWidget {
+class IDcard extends StatefulWidget {
   const IDcard({super.key});
 
+  @override
+  State<IDcard> createState() => _IDcardState();
+}
+
+class _IDcardState extends State<IDcard> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -99,11 +101,20 @@ class IDcard extends StatelessWidget {
           backgroundColor: Colors.black87,
           elevation: 0.0,
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: Container(
           padding: const EdgeInsets.fromLTRB(40.0, 50.0, 30.0, 0.0),
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: columnChildren),
+              children: <Widget>[
+                const Center(
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage('assets/papakofi.jpg'),
+                    radius: 60.0,
+                  ),
+                ),
+                ...columnChildren,
+              ]),
         ),
       ),
     );

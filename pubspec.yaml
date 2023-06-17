@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   simple_icons: ^7.10.0
+  logger: ^1.4.0
   flutter:
     sdk: flutter
 
