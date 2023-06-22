@@ -32,19 +32,28 @@ class _GitHubState extends State<GitHub> {
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          const Text('GitHub QR Code'),
+          const Text('Scan the QR Code',
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+              )),
+          const Text('to view my GitHub profile',
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+              )),
           const SizedBox(
             height: 10.0,
           ),
           QrImageView(
-            data: 'This QR code has an embedded image as well',
+            data: 'https://github.com/Boahen123',
             version: QrVersions.auto,
             size: 300,
             gapless: false,
-            embeddedImage: const AssetImage('assets/git.jpg'),
-            // embeddedImageStyle: const QrEmbeddedImageStyle(
-            //   size: Size(70, 70),
-            // ),
+            embeddedImage: const AssetImage('assets/git.webp'),
+            embeddedImageStyle: const QrEmbeddedImageStyle(
+              size: Size(40, 40),
+            ),
           )
         ])));
   }
