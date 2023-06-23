@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:id_card_app/screens/github.dart';
-import 'package:id_card_app/screens/linkedIn.dart';
+import 'package:id_card_app/screens/linked_in.dart';
+import 'package:id_card_app/screens/whatsapp.dart';
 import "package:simple_icons/simple_icons.dart";
 import 'package:page_transition/page_transition.dart';
 import 'package:id_card_app/screens/email.dart';
-// import 'package:logger/logger.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 List<Widget> columnChildren = [
   const SizedBox(
@@ -64,56 +65,65 @@ class _IDcardState extends State<IDcard> {
                   ),
                 ),
                 ...columnChildren,
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      PageTransition(
-                        type: PageTransitionType.fade,
-                        child: const GitHub(),
-                      ),
-                    );
-                  },
-                  child: const Row(
-                    children: <Widget>[
-                      Icon(
-                        SimpleIcons.github,
-                        color: Colors.black87,
-                      ),
-                      SizedBox(
-                        width: 10.0,
-                      ),
-                      Text('Boahen123',
-                          style:
-                              TextStyle(fontSize: 20.0, color: Colors.black87)),
-                    ],
+                Row(children: <Widget>[
+                  IconButton(
+                    onPressed: () async {
+                      var url = Uri.https('github.com', '/Boahen123');
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(url);
+                      }
+                    },
+                    icon: const Icon(
+                      SimpleIcons.github,
+                      color: Colors.black87,
+                    ),
+                    alignment: Alignment.centerLeft,
                   ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      PageTransition(
-                        type: PageTransitionType.fade,
-                        child: const LinkedIn(),
-                      ),
-                    );
-                  },
-                  child: const Row(
-                    children: <Widget>[
-                      Icon(
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            child: const GitHub(),
+                          ),
+                        );
+                      },
+                      child: const Text('Boahen123',
+                          style:
+                              TextStyle(fontSize: 20.0, color: Colors.black87)))
+                ]),
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () async {
+                        var url =
+                            Uri.https('linkedin.com', '/in/papakofiboahen');
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url);
+                        }
+                      },
+                      icon: const Icon(
                         SimpleIcons.linkedin,
                         color: Colors.blue,
                         size: 25.0,
                       ),
-                      SizedBox(
-                        width: 10.0,
-                      ),
-                      Text('Papa Kofi Boahen',
-                          style:
-                              TextStyle(fontSize: 20.0, color: Colors.black87)),
-                    ],
-                  ),
+                      alignment: Alignment.centerLeft,
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.fade,
+                              child: const LinkedIn(),
+                            ),
+                          );
+                        },
+                        child: const Text('Papa Kofi Boahen',
+                            style: TextStyle(
+                                fontSize: 20.0, color: Colors.black87))),
+                  ],
                 ),
                 TextButton(
                   onPressed: () {
@@ -139,6 +149,37 @@ class _IDcardState extends State<IDcard> {
                               TextStyle(fontSize: 20.0, color: Colors.black87)),
                     ],
                   ),
+                ),
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () async {
+                        var url = Uri.https('wa.me', '/qr/OSB42QNY2N6JC1');
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url);
+                        }
+                      },
+                      icon: Icon(
+                        SimpleIcons.whatsapp,
+                        color: Colors.green[600],
+                        size: 25.0,
+                      ),
+                      alignment: Alignment.centerLeft,
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.fade,
+                              child: const Whatsapp(),
+                            ),
+                          );
+                        },
+                        child: const Text('+233 50 323 0804',
+                            style: TextStyle(
+                                fontSize: 20.0, color: Colors.black87))),
+                  ],
                 ),
               ]),
         ),
