@@ -44,10 +44,12 @@ class _IDcardState extends State<IDcard> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.grey[400],
+        backgroundColor: Colors.white70,
         appBar: AppBar(
-          title: const Text('Contact Info', style: TextStyle(fontSize: 25.0)),
+          title:
+              const Text('Contact Papa Kofi', style: TextStyle(fontSize: 25.0)),
           centerTitle: true,
           backgroundColor: Colors.black87,
           elevation: 0.0,

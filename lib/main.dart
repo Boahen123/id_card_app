@@ -3,7 +3,7 @@ import 'package:logger/logger.dart';
 import 'package:id_card_app/screens/loading_screen.dart';
 import 'package:id_card_app/screens/home.dart';
 import 'package:id_card_app/screens/github.dart';
-import 'package:id_card_app/screens/linkedin.dart';
+import 'package:id_card_app/screens/linked_in.dart';
 import 'package:id_card_app/screens/email.dart';
 
 void main() {

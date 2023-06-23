@@ -37,7 +37,7 @@ class _WhatsappState extends State<Whatsapp> {
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
               )),
-          const Text('to add me as WhatsApp contact',
+          const Text('to add me as a WhatsApp contact',
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
