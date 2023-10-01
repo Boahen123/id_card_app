@@ -1,4 +1,4 @@
-# id_card_app
+# Contact Papa Kofi
 
 My Contact Details in a UI built with flutter
 
